@@ -1,4 +1,4 @@
-# CRUD: Registro de Empleados
+# CRUD: Registro de datos
 
 ## Lenguajes y Frameworks Utilizados:
 - HTML: Se utilizaron algunas etiquetas html dentro del archivo App.js
