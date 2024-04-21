@@ -3,7 +3,7 @@ import "./App.css"; // Estilos locales
 import { useState } from "react"; // Importación del hook useState de React
 import Axios from "axios"; // Importación de Axios para manejar solicitudes HTTP
 import "bootstrap/dist/css/bootstrap.min.css"; // Estilos de Bootstrap
-import Swal from "sweetalert2"; //Importando SweetAlert
+import Swal from "sweetalert2";
 
 function App() {
   // Datos Personales
@@ -50,6 +50,9 @@ function App() {
           " </strong> ha sido registrado con éxito</i>",
         icon: "success",
         timer: 3000,
+        background: "#32373D",
+        color: "#ffffff",
+        confirmButtonColor: "#007CBA",
       });
     });
   };
@@ -80,6 +83,9 @@ function App() {
           " </strong> con éxito</i>",
         icon: "success",
         timer: 3000,
+        background: "#32373D",
+        color: "#ffffff",
+        confirmButtonColor: "#007CBA",
       });
     });
   };
@@ -89,10 +95,13 @@ function App() {
       title: "Confirmar Eliminado",
       html: "<i>¿Estás seguro que deseas eliminar el registro?</i>",
       icon: "warning",
+      iconColor: "#d33",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Si, eliminar",
+      background: "#32373D",
+      color: "#ffffff",
     })
       .then((result) => {
         if (result.isConfirmed) {
@@ -104,6 +113,8 @@ function App() {
             title: "Eliminado!",
             text: `El registro de ${val.nombre} ha sido eliminado`,
             icon: "success",
+            background: "#32373D",
+            color: "#ffffff",
           });
         }
       })
@@ -116,6 +127,9 @@ function App() {
             JSON.parse(JSON.stringify(error)).message === "Network Error"
               ? "Error de Servidor, intente más tarde"
               : JSON.parse(JSON.stringify(error)).message,
+          background: "#32373D",
+          color: "#ffffff",
+          confirmButtonColor: "#007CBA",
         });
       });
   };
@@ -166,7 +180,7 @@ function App() {
   return (
     <div className="container">
       <div className="card text-center">
-        <div className="card-header">Gestión de empleados</div>
+        <div className="card-header">Registro de Datos</div>
         <div className="card-body">
           <h2>Datos Personales</h2>
           <div className="input-group mb-3">
