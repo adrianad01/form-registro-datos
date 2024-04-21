@@ -13,3 +13,4 @@
 - Sweet Alert: Modales de validaciones al guardar, editar o eliminar campos
 - Axios: Realizar solicitudes HTTP
 - Cors: Se instaló por bloqueo del navegador
+- Postman: Consumir los datos por el método GET
