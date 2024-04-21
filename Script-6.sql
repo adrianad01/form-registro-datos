@@ -1,5 +1,5 @@
 CREATE DATABASE empleados_crud;
-DROP DATABASE empleados_crud;
+
 USE empleados_crud;
 
 SHOW TABLES;
@@ -26,6 +26,3 @@ pais VARCHAR (100) NOT NULL
 -- ALTER TABLE empleados RENAME COLUMN numeroInterior TO numeroExterior;
 
 SELECT * FROM empleados;
-
-
-DELETE FROM empleados WHERE id=6;

@@ -268,9 +268,6 @@ function App() {
             />
           </div>
 
-          {/* Dirección */}
-          <h2>Dirección</h2>
-
           <div className="input-group mb-3">
             <span className="input-group-text" id="basic-addon1">
               Calle:{" "}
