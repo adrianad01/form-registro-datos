@@ -4,7 +4,7 @@
 - HTML: Se utilizaron algunas etiquetas html dentro del archivo App.js
 - CSS: Se modificaron algunos estilos sobre el componente
 - REACT.JS: Framework utilizado para el front
-- NODE.JS: Framework utilizado para el back
+- NODE.JS: Entorno de Servidor
 - EXPRESS.JS: Configuración de CORS y definición de rutas http
 - MYSQL (Servidor) DBEAVER (Gestor): Base de datos tipo SQL
 
