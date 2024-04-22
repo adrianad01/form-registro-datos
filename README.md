@@ -6,7 +6,7 @@
 - REACT.JS: Framework utilizado para el front
 - NODE.JS: Entorno de Servidor
 - EXPRESS.JS: Framework utilizado para el backend
-- MYSQL (Servidor) DBEAVER (Gestor): Base de datos tipo SQL
+- MYSQL (Servidor) DBEAVER (Cliente): Base de datos tipo SQL
 
 ## Otras herramientas utilizadas
 - Bootstrap: Diseño de las tablas de datos y los campos a llenar
