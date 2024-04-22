@@ -27,19 +27,18 @@ const db = mysql.createConnection({
 
 // Definición de una ruta POST en la aplicación Express.
 app.post("/create", (req, res) => {
-  // Extracción de datos del cuerpo de la solicitud HTTP utilizando req.body.
-  const nombre = req.body.nombre; // Extrae el valor del campo "nombre" del cuerpo de la solicitud.
-  const apellidoPaterno = req.body.apellidoPaterno; // Extrae el valor del campo "apellidoPaterno" del cuerpo de la solicitud.
-  const apellidoMaterno = req.body.apellidoMaterno; // Extrae el valor del campo "apellidoMaterno" del cuerpo de la solicitud.
-  const edad = req.body.edad; // Extrae el valor del campo "edad" del cuerpo de la solicitud.
-  const lugarNacimiento = req.body.lugarNacimiento; // Extrae el valor del campo "lugarNacimiento" del cuerpo de la solicitud.
-  const calle = req.body.calle; // Extrae el valor del campo "calle" del cuerpo de la solicitud.
-  const colonia = req.body.colonia; // Extrae el valor del campo "colonia" del cuerpo de la solicitud.
-  const codigoPostal = req.body.codigoPostal; // Extrae el valor del campo "codigoPostal" del cuerpo de la solicitud.
-  const municipio = req.body.municipio; // Extrae el valor del campo "municipio" del cuerpo de la solicitud.
-  const estado = req.body.estado; // Extrae el valor del campo "estado" del cuerpo de la solicitud.
-  const numeroExterior = req.body.numeroExterior; // Extrae el valor del campo "numeroExterior" del cuerpo de la solicitud.
-  const pais = req.body.pais; // Extrae el valor del campo "pais" del cuerpo de la solicitud.
+  const nombre = req.body.nombre;
+  const apellidoPaterno = req.body.apellidoPaterno;
+  const apellidoMaterno = req.body.apellidoMaterno;
+  const edad = req.body.edad;
+  const lugarNacimiento = req.body.lugarNacimiento;
+  const calle = req.body.calle; 
+  const colonia = req.body.colonia;
+  const codigoPostal = req.body.codigoPostal;
+  const municipio = req.body.municipio; 
+  const estado = req.body.estado; 
+  const numeroExterior = req.body.numeroExterior; 
+  const pais = req.body.pais; 
 
   // Consulta de la BD
   db.query(
