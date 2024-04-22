@@ -3,7 +3,7 @@ import "./App.css"; // Estilos locales
 import { useState } from "react"; // Importación del hook useState de React
 import Axios from "axios"; // Importación de Axios para manejar solicitudes HTTP
 import "bootstrap/dist/css/bootstrap.min.css"; // Estilos de Bootstrap
-import Swal from "sweetalert2";
+import Swal from "sweetalert2"; //Modales de validación
 
 function App() {
   // Datos Personales
@@ -12,7 +12,6 @@ function App() {
   const [apellidoMaterno, setApellidoMaterno] = useState("");
   const [edad, setEdad] = useState("");
   const [lugarNacimiento, setLugarNacimiento] = useState("");
-  //Dirección
   const [calle, setCalle] = useState("");
   const [colonia, setColonia] = useState("");
   const [codigoPostal, setCodigoPostal] = useState("");
