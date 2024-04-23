@@ -170,7 +170,7 @@ function App() {
 
   //Función para que me arroje la lista de empleados por el método GET
   const getEmpleados = () => {
-    Axios.get("http://localhost:3300/empleados").then((response) => {
+    Axios.get("http://localhost:3300/registroDatos").then((response) => {
       setEmpleados(response.data);
     });
   };

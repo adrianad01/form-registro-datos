@@ -22,7 +22,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "YTsFDJaMfO0zJakbd9PJx0UEfBfotoU3neTCwpuWuZeCvWChwWKbU6yK65zRaVCw",
-  database: "empleados_crud",
+  database: "registro_datos_crud",
 });
 
 // Definición de una ruta POST en la aplicación Express.
@@ -42,7 +42,7 @@ app.post("/create", (req, res) => {
 
   // Consulta de la BD
   db.query(
-    "INSERT INTO empleados(nombre,apellidoPaterno,apellidoMaterno,edad,lugarNacimiento,calle,colonia,codigoPostal,municipio,estado,numeroExterior,pais) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+    "INSERT INTO registroDatos(nombre,apellidoPaterno,apellidoMaterno,edad,lugarNacimiento,calle,colonia,codigoPostal,municipio,estado,numeroExterior,pais) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
     [
       nombre,
       apellidoPaterno,
@@ -70,8 +70,8 @@ app.post("/create", (req, res) => {
   );
 });
 
-app.get("/empleados", (req, res) => {
-  db.query("SELECT * FROM empleados", (err, result) => {
+app.get("/registroDatos", (req, res) => {
+  db.query("SELECT * FROM registroDatos", (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -96,7 +96,7 @@ app.put("/update", (req, res) => {
   const pais = req.body.pais;
 
   db.query(
-    "UPDATE empleados SET nombre =?,apellidoPaterno=?,apellidoMaterno=?,edad=?,lugarNacimiento=?,calle=?,colonia=?,codigoPostal=?,municipio=?,estado=?,numeroExterior=?,pais=? WHERE id=?",
+    "UPDATE registroDatos SET nombre =?,apellidoPaterno=?,apellidoMaterno=?,edad=?,lugarNacimiento=?,calle=?,colonia=?,codigoPostal=?,municipio=?,estado=?,numeroExterior=?,pais=? WHERE id=?",
     [
       nombre,
       apellidoPaterno,
@@ -126,7 +126,7 @@ app.put("/update", (req, res) => {
 app.delete("/delete/:id", (req, res) => {
   const id = req.params.id;
 
-  db.query("DELETE FROM empleados WHERE id=?", id, (err, result) => {
+  db.query("DELETE FROM registroDatos WHERE id=?", id, (err, result) => {
     if (err) {
       console.log(err);
     } else {
