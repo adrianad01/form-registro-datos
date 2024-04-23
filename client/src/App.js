@@ -21,7 +21,7 @@ function App() {
   const [pais, setPais] = useState("");
   const [id, setId] = useState("");
   const [editar, setEditar] = useState(false);
-  const [empleadosList, setEmpleados] = useState([]);
+  const [registroList, setRegistro] = useState([]);
 
   //Arrow Function para agregar un empleado por el método POST
   const add = () => {
@@ -39,14 +39,14 @@ function App() {
       numeroExterior: numeroExterior,
       pais: pais,
     }).then(() => {
-      getEmpleados();
+      getRegistro();
       limpiarCampos();
       Swal.fire({
-        title: "<strong>Registro Éxitoso</strong>",
+        title: "<b>Registro Éxitoso</b>",
         html:
-          "<i>El empleado <strong>" +
+          "<i>El empleado <b>" +
           nombre +
-          " </strong> ha sido registrado con éxito</i>",
+          " </b> ha sido registrado con éxito</i>",
         icon: "success",
         timer: 3000,
         background: "#32373D",
@@ -72,14 +72,14 @@ function App() {
       numeroExterior: numeroExterior,
       pais: pais,
     }).then(() => {
-      getEmpleados();
+      getRegistro();
       limpiarCampos();
       Swal.fire({
-        title: "<strong>Actualización Éxitosa</strong>",
+        title: "<b>Actualización Éxitosa</b>",
         html:
-          "<i>Se han actualizado los datos de <strong>" +
+          "<i>Se han actualizado los datos de <b>" +
           nombre +
-          " </strong> con éxito</i>",
+          " </b> con éxito</i>",
         icon: "success",
         timer: 3000,
         background: "#32373D",
@@ -89,7 +89,7 @@ function App() {
     });
   };
 
-  const deleteEmpleado = (val) => {
+  const deleteRegistro = (val) => {
     Swal.fire({
       title: "Confirmar Eliminado",
       html: "<i>¿Estás seguro que deseas eliminar el registro?</i>",
@@ -105,7 +105,7 @@ function App() {
       .then((result) => {
         if (result.isConfirmed) {
           Axios.delete(`http://localhost:3300/delete/${val.id}`).then(() => {
-            getEmpleados();
+            getRegistro();
             limpiarCampos();
           });
           Swal.fire({
@@ -122,10 +122,6 @@ function App() {
           icon: "error",
           title: "Oops...",
           text: "No se logró eliminar el empleado",
-          footer:
-            JSON.parse(JSON.stringify(error)).message === "Network Error"
-              ? "Error de Servidor, intente más tarde"
-              : JSON.parse(JSON.stringify(error)).message,
           background: "#32373D",
           color: "#ffffff",
           confirmButtonColor: "#007CBA",
@@ -150,9 +146,8 @@ function App() {
     setEditar(false);
   };
 
-  const editarEmpleado = (val) => {
+  const editarRegistro = (val) => {
     setEditar(true);
-
     setNombre(val.nombre);
     setApellidoPaterno(val.apellidoPaterno);
     setApellidoMaterno(val.apellidoMaterno);
@@ -169,9 +164,9 @@ function App() {
   };
 
   //Función para que me arroje la lista de empleados por el método GET
-  const getEmpleados = () => {
+  const getRegistro = () => {
     Axios.get("http://localhost:3300/registroDatos").then((response) => {
-      setEmpleados(response.data);
+      setRegistro(response.data);
     });
   };
 
@@ -414,11 +409,33 @@ function App() {
           ) : (
             <button className="btn btn-success m-2" onClick={add}>
               Registrar Persona
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-file-earmark-plus"
+                viewBox="0 0 16 16"
+              >
+                <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5" />
+                <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z" />
+              </svg>
             </button>
           )}
 
-          <button className="btn btn-success m-2" onClick={getEmpleados}>
+          <button className="btn btn-success m-2" onClick={getRegistro}>
             Mostrar Registros
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-eye-fill"
+              viewBox="0 0 16 16"
+            >
+              <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
+              <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
+            </svg>
           </button>
         </div>
       </div>
@@ -443,7 +460,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {empleadosList.map((val, key) => {
+          {registroList.map((val, key) => {
             return (
               <tr key={val.id}>
                 <th scope="row">{val.id}</th>
@@ -468,7 +485,7 @@ function App() {
                     <button
                       type="button"
                       onClick={() => {
-                        editarEmpleado(val);
+                        editarRegistro(val);
                       }}
                       className="btn btn-success m-1"
                     >
@@ -491,7 +508,7 @@ function App() {
                       type="button"
                       className="btn btn-success m-1"
                       onClick={() => {
-                        deleteEmpleado(val);
+                        deleteRegistro(val);
                       }}
                     >
                       <svg
