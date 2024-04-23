@@ -403,7 +403,7 @@ function App() {
         </div>
       </div>
 
-      <table className="table table-striped">
+      <table className="table table-dark table-striped">
         <thead>
           <tr>
             <th scope="col">Número de Registro</th>
